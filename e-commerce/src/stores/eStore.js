@@ -54,26 +54,33 @@ export const useEStore = defineStore('todoList', {
       {
         name: "1",
         image: bigpic1,
-        title: "Everyday Fresh & Clean with our Product",
+        title: "Coupon Savings",
+        description: "Up to 60% off everyday essentials",
         bg: "bg-green-300",
-        color:"bg-[#F0E8D5]",
+        color:"bg-[#D6A9CC]",
+        btn: "Shop Coupon",
+        btncolor:"bg-[#ED7171]"
   
       },
       {
         name: "2",
         image: bigpic2,
-        title: "Make your Breakfast Easy and Healthy",
+        title: "Free Delivery",
+        description: "With selected items",
         bg: "bg-green-300",
-        color: "bg-[#F3E8E8]",
-  
+        color: "bg-[#649EB1]",
+        btn: "Deliver Now",
+        btncolor:"bg-[#212844]"
       },
       {
         name: "3",
         image: bigpic3,
-        title: "The best Organic Product Online",
+        title: "Gift Voucher",
+        description: "With personal care items",
         bg: "bg-yellow-300",
-        color: "bg-[#E7EAF3]",
-  
+        color: "bg-[#FC7E85]",
+        btn: "Gift Now",
+        btncolor:"bg-[#D6A9CC]"
       },
     ],
   }),

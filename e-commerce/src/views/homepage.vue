@@ -2,8 +2,8 @@
     <div class="flex flex-col gap-4">
         <topbar></topbar>
         <ShowCase></ShowCase>
-        <div class="flex gap-4 mb-3">
-            <Promotion :class="promotion.color" v-for="promotion in prom" :image="promotion.image" :description="promotion.title" :bg="promotion.bg"></Promotion>
+        <div class="flex gap-10 px-10">
+          <Promotion :class="promotion.color" v-for="promotion in prom" :image="promotion.image" :name="promotion.name" :title="promotion.title" :bg="promotion.bg" :color="promotion.color" :description="promotion.description" :btn="promotion.btn" :btncolor="promotion.btncolor"></Promotion>
         </div>
     </div>
 </template>
@@ -24,11 +24,11 @@
         ShowCase,
         Promotion,
       },
-    //   computed: {
-    //     ...mapState(useEStore,['prom']),
-    //     ...mapState(useEStore,['categories']),
-    //     ...mapState(useEStore,['products'])
-    //   },
+      computed: {
+        ...mapState(useEStore,['prom']),
+        // ...mapState(useEStore,['categories']),
+        // ...mapState(useEStore,['products'])
+      },
     //   methods: {
     //     nextRoute(route) {
     //       this.$router.push(route)
