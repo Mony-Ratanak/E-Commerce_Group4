@@ -12,6 +12,8 @@ class VerifyCsrfToken extends Middleware
      * @var array<int, string>
      */
     protected $except = [
-        //
+        'products', // Assuming 'products' is the URI you want to exclude
+        // Add more URIs as needed
     ];
 }
+

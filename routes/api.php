@@ -1,7 +1,9 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,50 +16,42 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
 
-Route::get('/categories', function (Request $request) {
-    return "Get all categories";
+// Route::get('/categories', [Controller::class, 'getCategory'], function() {
+//     return "Get all categories";
+// });
+// Route::post('/categories', function (Request $request) {
+//     return "Create 1 category";
+// });
+// Route::get('/categories/{categoryId}', function (Request $request) {
+//     return "Get 1 category by categoryID";
 
-});
-Route::post('/categories', function (Request $request) {
-    return "Create 1 category";
-});
-Route::get('/categories/{categoryId}', function (Request $request) {
-    return "Get 1 category by categoryID";
+// });
+// Route::patch('/categories/{categoryId}', function (Request $request) {
+//     return "Update 1 category";
+// });
 
-});
-Route::patch('/categories/{categoryId}', function (Request $request) {
-    return "Update 1 category";
-});
-
-Route::delete('/categories/{categoryId}', function (Request $request) {
-    return "Delete 1 category";
-});
+// Route::delete('/categories/{categoryId}', function (Request $request) {
+//     return "Delete 1 category";
+// });
 
 
-Route::get('/products', function (Request $request) {
-    return "Get all products";
+Route::get('/products', [ProductController::class, 'index']);
 
-});
-Route::post('/products', function (Request $request) {
-    return "Create 1 product";
-});
-Route::get('/products/{productId}', function (Request $request) {
-    return "Get 1 product";
+Route::post('/products', [ProductController::class, 'store']);
+// Route::get('/products/{productId}', function (Request $request) {
+//     return "Get 1 product";
 
-});
-Route::patch('/products/{productId}', function (Request $request) {
-    return "Update 1 product";
-});
+// });
+// Route::patch('/products/{productId}', function (Request $request) {
+//     return "Update 1 product";
+// });
 
-Route::delete('/products/{productId}', function (Request $request) {
-    return "Delete 1 product";
-});
+// Route::delete('/products/{productId}', function (Request $request) {
+//     return "Delete 1 product";
+// });
 
-Route::get('/categories/{categoryId/products}', function (Request $request) {
-    return "Get all products belong to categoryId";
-});
+// Route::get('/categories/{categoryId/products}', function (Request $request) {
+//     return "Get all products belong to categoryId";
+// });
 

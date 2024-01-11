@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\ProductController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,25 +17,17 @@ use App\Http\Controllers\WelcomeController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-// routes/web.php
-
 Route::get('/', [WelcomeController::class, 'welcome']);
 
 
-Route::resource("/products","App\Http\Controllers\ProductController");
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/categories', [CategoryController::class, 'index']);
-Route::post('/categories', [CategoryController::class, 'store']);
-Route::get('/categories/{categoryId}', [CategoryController::class, 'show']);
-Route::patch('/categories/{categoryId}', [CategoryController::class, 'update']);
-Route::delete('/categories/{categoryId}', [CategoryController::class, 'destroy']);
-Route::get('/categories/{categoryId}/products', [CategoryController::class, 'getProducts']);
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
-Route::get('/products', [ProductController::class, 'index']);
-Route::post('/products', [ProductController::class, 'store']);
-Route::get('/products/{productId}', [ProductController::class, 'show']);
-Route::patch('/products/{productId}', [ProductController::class, 'update']);
-Route::delete('/products/{productId}', [ProductController::class, 'destroy']);
+require __DIR__.'/auth.php';

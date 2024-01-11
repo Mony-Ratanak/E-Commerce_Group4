@@ -7,58 +7,49 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function /*getProducts*/index()
     {
-        $products = Product::all();
-        return response()->json($products);
+        $products = Product::orderBy('name')->take(10)->get();
+        return $products;
     }
-
+    
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'name' => 'required|string|max:255',
-            'category_id' => 'required|exists:categories,id',
-            'pricing' => 'required|numeric',
-            'description' => 'nullable|string',
-            'images' => 'nullable|json',
-            // Add other validation rules as needed
-        ]);
-
-        $product = Product::create($data);
-
-        return response()->json($product, 201);
+        $product = new Product;
+        $product->name = $request->input('name');
+        $product->category_id = $request->input('category_id'); // Add this line
+        $product->save();
+    
+        return "Product created successfully";
     }
+    
+    // public function getProduct($productId){
+    //     $product = Product::find($productId);
+    //     if (!$product) {
+    //         return response()->json(['error' => 'Product not found'], 404);
+    //     }
+    //     return response()->json(['data' => $product]);
+    // }
+    // public function updateProduct(Request $request, $productId)
+    // {
+    //     $product = Product::find($productId);
+    //     if (!$product) {
+    //         return response()->json(['error' => 'Product not found'], 404);
+    //     }
+    //     $product->name = $request->input('name');
+    //     // Update other fields as needed
+    //     $product->save();
+    //     return response()->json(['message' => 'Product updated successfully']);
+    // }
 
-    public function show($productId)
-    {
-        $product = Product::findOrFail($productId);
-        return response()->json($product);
-    }
-
-    public function update(Request $request, $productId)
-    {
-        $product = Product::findOrFail($productId);
-
-        $data = $request->validate([
-            'name' => 'required|string|max:255',
-            'category_id' => 'required|exists:categories,id',
-            'pricing' => 'required|numeric',
-            'description' => 'nullable|string',
-            'images' => 'nullable|json',
-            // Add other validation rules as needed
-        ]);
-
-        $product->update($data);
-
-        return response()->json($product);
-    }
-
-    public function destroy($productId)
-    {
-        $product = Product::findOrFail($productId);
-        $product->delete();
-
-        return response()->json(['message' => 'Product deleted successfully']);
-    }
+    // public function deleteProduct($productId)
+    // {
+    //     $product = Product::find($productId);
+    //     if (!$product) {
+    //         return response()->json(['error' => 'Product not found'], 404);
+    //     }
+    //     $product->delete();
+    //     return response()->json(['message' => 'Product deleted successfully']);
+    // }
 }
 
