@@ -6,17 +6,14 @@
                  <Searchbar class=" translate-y-[4px]"></Searchbar>
              </div>
              <div class="flex gap-4 text-black pr-6">
-                 <MenuItem v-for="menu in Menuitems" :title="menu.title" :icon="menu.icon" :type="menu.type" ></MenuItem>
+                 <MenuItem v-for="menu in Menuitems" :key="menu.title" :title="menu.title" :icon="menu.icon" :type="menu.type" ></MenuItem>
              </div>
      
          </div>
          <div style="background-color: #212844;" class="flex items-center py-2 pl-8">
              <div class="flex gap-8 p-4">
                  <div class="flex w-fit gap-10 rounded-lg">
-                     <!-- <div @click="nextRoute('/categories/category')" class="flex items-center h-full gap-3 ">
-                         <p class="font-semibold">Hot Deals</p>  
-                     </div> -->
-                     <MenuItem @click="nextRoute('/')" v-for="item in ListItem" :title="item.title" :icon="item.icon"></MenuItem>
+                     <MenuItem @click="nextRoute(item.title)" :key="item.title" v-for="item in ListItem" :title="item.title" :icon="item.icon"></MenuItem>
                  </div>
              </div>
          </div>
@@ -41,9 +38,9 @@
              ...mapState(useEStore,['ListItem'])
          },
          methods: {
-         nextRoute(route) {
-           this.$router.push(route)
-         }
+            nextRoute(route) {
+            this.$router.push('/' + route.toLowerCase());
+        },
        }
      }
  

@@ -30,17 +30,8 @@ import axios from 'axios';
 export default {
   name: "Product",
   props: {
-    image: String,
-    name: String,
-    description: String,
     tag: String,
-    kg: String,
-    discountPrice: String,
-    rate: String,
-    cost: String,
     color: String,
-    bg1: String,
-    buy: String,
   },
   data() {
     return {

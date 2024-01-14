@@ -57,9 +57,7 @@
           <div class="border-b-2 border-black mx-8 mt-4"></div>
           <div class="px-10 w-100">
               <div class="horizontalscroll flex gap-4 w-full p-2">
-                <ProductLaptop v-for="product in productlaptops" :key="product.id" :image= "product.image" :name="product.name" :tag="product.tag" 
-                      :rate="product.rate" :description="product.description" :discountPrice="product.discountPrice"
-                      :cost="product.sellPrice" :buy="product.buy" :color="product.color"
+                <ProductLaptop v-for="product in productlaptops" :key="product.id" :tag="product.tag" :color="product.color"
                 ></ProductLaptop>
               </div>
           </div>
@@ -70,7 +68,7 @@
           <div class="border-b-2 border-black mx-8 mt-4"></div>
           <div class="px-10 w-100">
               <div class="horizontalscroll flex gap-4 w-full">
-                <ProductSmartphone v-for="product in productsmartphones" :key="product.id" :image= "product.image"
+                <ProductSmartphone v-for="product in productsmartphones" :key="product.id"
                 ></ProductSmartphone>
               </div>
           </div>
@@ -81,7 +79,7 @@
           <div class="border-b-2 border-black mx-8 mt-4"></div>
           <div class="px-10 w-full justify-center items-center mt-4">
               <div class="horizontalscroll flex gap-4 w-full justify-between">
-                  <Brand :class="brand.color" :key="brand.id" v-for="brand in brands" :image="brand.image" :bigimage="brand.bigimage" :name="brand.name" :color="brand.color" :description="brand.description" :textcolor="brand.textcolor" :btncolor="brand.btncolor"></Brand>
+                  <Brand @click="nextRoute(brand.name)" :class="brand.color" :key="brand.id" v-for="brand in brands" :image="brand.image" :bigimage="brand.bigimage" :name="brand.name" :color="brand.color" :description="brand.description" :textcolor="brand.textcolor" :btncolor="brand.btncolor"></Brand>
               </div>
           </div>
       </div>
@@ -118,11 +116,11 @@
         ...mapState(useEStore,['productlaptops']),
         ...mapState(useEStore,['productsmartphones'])
       },
-    //   methods: {
-    //     nextRoute(route) {
-    //       this.$router.push(route)
-    //     }
-    //   }
+      methods: {
+            nextRoute(route) {
+            this.$router.push('/' + route.toLowerCase());
+        },
+       }
     }
      
   </script>

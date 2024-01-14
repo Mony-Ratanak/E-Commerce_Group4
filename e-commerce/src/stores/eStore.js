@@ -38,7 +38,7 @@ export const useEStore = defineStore('todoList', {
         icon: 'chevron-down',
       },
       {
-        title: 'Labtop',
+        title: 'Laptop',
         icon: 'chevron-down',
       },
       {
@@ -95,34 +95,12 @@ export const useEStore = defineStore('todoList', {
       {        
         id: 1,        
         tag: "10% OFF",       
-        image: macbook,        
-        category: 3,        
-        name: "Macbook Pro 16 Inch",        
-        rate: 4,        
-        description: "$2000",       
-        sellPrice: "2.80",        
-        discountPercentage: 10,       
-        discountPrice: "$2500",
-        buy: "1k", 
         color: "bg-blue-300",
-       
       },
     ],
     productsmartphones: [
       {        
         id: 1,        
-        tag: "10% OFF",       
-        image: macbook,        
-        category: 3,        
-        name: "Macbook Pro 16 Inch",        
-        rate: 4,        
-        description: "$2000",       
-        sellPrice: "2.80",        
-        discountPercentage: 10,       
-        discountPrice: "$2500",
-        buy: "1k", 
-        color: "bg-blue-300",
-       
       },
     ],
     brands: [
