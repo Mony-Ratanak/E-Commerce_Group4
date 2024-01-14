@@ -18,24 +18,6 @@
   .scroll::-webkit-scrollbar-track {
     background-color: #f1f1f1;
   }
-  .horizontalscroll {
-    overflow-y: hidden;
-    overflow-x: scroll;
-    margin: 0;
-  }
-
-  .horizontalscroll::-webkit-scrollbar {
-    height: 6px;
-  }
-
-  .horizontalscroll::-webkit-scrollbar-thumb {
-    background-color: #000000;
-    border-radius: 6px;
-  }
-
-  .horizontalscroll::-webkit-scrollbar-track {
-    background-color: white;
-  }
   body{
     overflow: hidden;
   }
@@ -47,12 +29,13 @@
       <topbar></topbar>
       <div class="scroll">
           <div class="px-10 w-100">
-              <div class="horizontalscroll flex gap-4 w-full p-2">
+              <div class="flex gap-4 w-full p-2">
                 <Laptopbybrand v-for="product in productlaptops" :key="product.id" :tag="product.tag" :color="product.color"
                 ></Laptopbybrand>
               </div>
           </div>
       </div>
+      <Footer></Footer>
   </div>
 </template>
 
@@ -62,9 +45,8 @@
     import {mapState} from 'pinia';
     import { RouterLink } from 'vue-router';
 
-    import ProductLaptop from '../components/ProductLaptop.vue';
+    import Footer from '../components/Footer.vue';
     import Laptopbybrand from '../components/Laptopbybrand.vue';
-    import ProductSmartphone from '../components/ProductSmartphone.vue';
     import Topbar from '../components/Topbar.vue';
     import ShowCase from '../components/ShowCase.vue';
     import Promotion from '../components/Promotion.vue';
@@ -77,8 +59,8 @@
         ShowCase,
         Promotion,
         Laptopbybrand,
-        ProductSmartphone,
         Brand,
+        Footer,
       },
       computed: {
         ...mapState(useEStore,['prom']),

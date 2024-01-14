@@ -3,7 +3,7 @@
     overflow-y: scroll;
     overflow-x: hidden;
     margin: 0;
-    height: 75vh;
+    height: 78vh;
   }
 
   .scroll::-webkit-scrollbar {
@@ -82,6 +82,9 @@
                 <Brand @click="nextbrandRoute(brand)" :class="brand.color" :key="brand.id" v-for="brand in brands" :image="brand.image" :bigimage="brand.bigimage" :name="brand.name" :color="brand.color" :description="brand.description" :textcolor="brand.textcolor" :btncolor="brand.btncolor"></Brand>
               </div>
           </div>
+          <div>
+            <Footer></Footer>
+          </div>
       </div>
   </div>
 </template>
@@ -99,6 +102,7 @@
     import ShowCase from '../components/ShowCase.vue';
     import Promotion from '../components/Promotion.vue';
     import Brand from '../components/Brand.vue';
+    import Footer from '../components/Footer.vue';
   
     export default {
       name: "app",
@@ -110,6 +114,7 @@
         ProductSmartphone,
         ProductLaptop,
         Brand,
+        Footer,
       },
       computed: {
         ...mapState(useEStore,['prom']),
