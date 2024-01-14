@@ -5,24 +5,20 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/home',
+      path: '/home/welcome',
       name: 'home',
       component: ()=> import('../views/homepage.vue')
     },
     {
-      path: '/Laptop',
-      name: 'laptoppage',
-      component: ()=> import('../views/Laptop.vue')
+      path: '/:itemTitle/:itemId',
+      name: 'productbycategory',
+      component: ()=> import('../views/Productbycategory.vue')
     },
     {
-      path: '/Phone',
-      name: 'phonepage',
-      component: ()=> import('../views/Phone.vue')
-    },
-    {
-      path: '/iphone',
-      name: 'iphonepage',
-      component: ()=> import('../views/Productbybrand.vue')
+      path: '/:brandName/:brandId',
+      name: 'brandPage',
+      component: () => import('../views/Productbybrand.vue'),
+      props: true  // Enables passing route params as props to your component
     },
     
   ]

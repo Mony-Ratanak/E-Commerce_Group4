@@ -48,8 +48,8 @@
       <div class="scroll">
           <div class="px-10 w-100">
               <div class="horizontalscroll flex gap-4 w-full p-2">
-                <Productbybrand v-for="product in productbycategory" :key="product.id" :tag="product.tag" :color="product.color"
-                ></Productbybrand>
+                <Productbycategory v-for="product in productbycategory" :key="product.id" :tag="product.tag" :color="product.color"
+                ></Productbycategory>
               </div>
           </div>
       </div>

@@ -39,18 +39,16 @@
       };
     },
     created() {
-      const brandId = this.getBrandIdFromUrl();
-      console.log("brandId:", brandId);
-      this.fetchProducts(brandId);
+        this.fetchData();
     },
     methods: {
-      async fetchProducts(brandId) {
-        const numericBrandId = +brandId;
+      async fetchProducts(categoryId) {
+        const numericcategoryId = +categoryId;
         try {
-          console.log('Fetching products for brandId:', brandId);
-          const response = await axios.get('http://localhost/api/products2', {
+          console.log('Fetching products for categoryId:', categoryId);
+          const response = await axios.get('http://localhost/api/products', {
             params: {
-              brand_id: numericBrandId,
+              category_id: numericcategoryId,
             },
           });
           this.products = response.data;
@@ -58,13 +56,22 @@
           console.error('Error fetching products:', error);
         }
       },
-      getBrandIdFromUrl() {
-        const pathArray = window.location.pathname.split('/');
-        const brandId = pathArray[pathArray.length - 1];
-        return brandId || null;
-      },
+        getCategoryIdFromUrl() {
+            const pathArray = window.location.pathname.split('/');
+            const categoryId = pathArray[pathArray.length - 1];
+            return categoryId || null;
+        },
+        async fetchData() {
+            const categoryId = this.getCategoryIdFromUrl();
+            console.log("categoryId:", categoryId);
+            await this.fetchProducts(categoryId);
+        },
     },
-    
+    watch: {
+            $route(to, from) {
+            this.fetchData(); // Fetch data when the route is updated
+            },
+        },
   };
   </script>
   

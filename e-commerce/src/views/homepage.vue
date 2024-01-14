@@ -79,7 +79,7 @@
           <div class="border-b-2 border-black mx-8 mt-4"></div>
           <div class="px-10 w-full justify-center items-center mt-4">
               <div class="horizontalscroll flex gap-4 w-full justify-between">
-                  <Brand @click="nextRoute(brand.name)" :class="brand.color" :key="brand.id" v-for="brand in brands" :image="brand.image" :bigimage="brand.bigimage" :name="brand.name" :color="brand.color" :description="brand.description" :textcolor="brand.textcolor" :btncolor="brand.btncolor"></Brand>
+                <Brand @click="nextbrandRoute(brand)" :class="brand.color" :key="brand.id" v-for="brand in brands" :image="brand.image" :bigimage="brand.bigimage" :name="brand.name" :color="brand.color" :description="brand.description" :textcolor="brand.textcolor" :btncolor="brand.btncolor"></Brand>
               </div>
           </div>
       </div>
@@ -92,6 +92,7 @@
     import {mapState} from 'pinia';
     import { RouterLink } from 'vue-router';
 
+    import Productbycategory from '../components/Productbycategory.vue';
     import ProductLaptop from '../components/ProductLaptop.vue';
     import ProductSmartphone from '../components/ProductSmartphone.vue';
     import Topbar from '../components/Topbar.vue';
@@ -105,22 +106,27 @@
         Topbar,
         ShowCase,
         Promotion,
-        ProductLaptop,
+        Productbycategory,
         ProductSmartphone,
+        ProductLaptop,
         Brand,
       },
       computed: {
         ...mapState(useEStore,['prom']),
         ...mapState(useEStore,['brands']),
         // ...mapState(useEStore,['categories']),
+        ...mapState(useEStore,['productbycategory']),
         ...mapState(useEStore,['productlaptops']),
-        ...mapState(useEStore,['productsmartphones'])
+        ...mapState(useEStore,['productsmartphones']),
       },
       methods: {
-            nextRoute(route) {
-            this.$router.push('/' + route.toLowerCase());
+        nextbrandRoute(brand) {
+          this.$router.push(`/${brand.name}/${brand.id}`);
         },
-       }
+        nextproductRoute(product) {
+          this.$router.push(`/${product.title}/${product.id}`);
+        },
+      },
     }
      
   </script>

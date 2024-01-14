@@ -35,26 +35,32 @@ export const useEStore = defineStore('todoList', {
 
       {
         title: 'Home',
+        id: "welcome",
         icon: 'chevron-down',
       },
       {
         title: 'Laptop',
+        id: 1,  
         icon: 'chevron-down',
       },
       {
         title: 'Phone',
+        id: 2,  
         icon: 'chevron-down',
       },
       {
         title: 'Smart Watch',
+        id: 3,  
         icon: 'chevron-down',
       },
       {
         title: 'Laptop accessories',
+        id: 4,  
         icon: 'chevron-down',
       },
       {
         title: 'Phone accessories',
+        id: 5,  
         icon: 'chevron-down',
       },
     ],
@@ -91,6 +97,13 @@ export const useEStore = defineStore('todoList', {
         btncolor:"bg-[#D6A9CC]"
       },
     ],
+    productbycategory: [
+      {        
+        id: 1,        
+        tag: "10% OFF",       
+        color: "bg-blue-300",
+      },
+    ],
     productlaptops: [
       {        
         id: 1,        
@@ -105,7 +118,8 @@ export const useEStore = defineStore('todoList', {
     ],
     brands: [
       {
-        name: "IPHONE",
+        name: "iphone",
+        id:1,
         image: iphonelogo,
         bigimage: iphone,
         description: "Up to 80% OFF",
@@ -114,16 +128,8 @@ export const useEStore = defineStore('todoList', {
         btncolor: "bg-[#494949]",
       },
       {
-        name: "IPHONE",
-        image: iphonelogo,
-        bigimage: iphone,
-        description: "Up to 80% OFF",
-        color:"bg-[#313131]",
-        textcolor: "text-white",
-        btncolor: "bg-[#494949]",
-      },
-      {
-        name: "RealME",
+        name: "realme",
+        id:2,
         image: realmelogo,
         bigimage: realme,
         description: "Up to 80% OFF",
@@ -132,13 +138,24 @@ export const useEStore = defineStore('todoList', {
         btncolor: "bg-[#F6DE8D]",
       },
       {
-        name: "XIAOMI",
+        name: "xiaomi",
+        id:3,
         image: xiaomilogo,
         bigimage: xiaomi,
         description: "Up to 80% OFF",
         color: "bg-white",
         textcolor: "text-black",
         btncolor: "bg-[#FFD1B0]",
+      },
+      {
+        name: "iphone",
+        id:1,
+        image: iphonelogo,
+        bigimage: iphone,
+        description: "Up to 80% OFF",
+        color:"bg-[#313131]",
+        textcolor: "text-white",
+        btncolor: "bg-[#494949]",
       },
     ],
   }),

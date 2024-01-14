@@ -13,7 +13,7 @@
          <div style="background-color: #212844;" class="flex items-center py-2 pl-8">
              <div class="flex gap-8 p-4">
                  <div class="flex w-fit gap-10 rounded-lg">
-                     <MenuItem @click="nextRoute(item.title)" :key="item.title" v-for="item in ListItem" :title="item.title" :icon="item.icon"></MenuItem>
+                     <MenuItem @click="nextRoute(item)" :key="item.id" v-for="item in ListItem" :title="item.title" :icon="item.icon"></MenuItem>
                  </div>
              </div>
          </div>
@@ -38,10 +38,12 @@
              ...mapState(useEStore,['ListItem'])
          },
          methods: {
-            nextRoute(route) {
-            this.$router.push('/' + route.toLowerCase());
-        },
-       }
+            nextRoute(item) {
+                console.log('Clicked item:', item);
+                this.$router.push(`/${item.title}/${item.id}`);
+                
+            },
+        }
      }
  
  </script>
