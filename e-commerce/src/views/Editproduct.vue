@@ -20,7 +20,7 @@
 
         <label for="editedImage">Image:</label>
         <input v-model="product[0].images" id="editedImage" />
-        <img :src="'http://localhost/storage/' + product[0].images" alt="Product Image" class="w-10 h-10">
+        <img :src="'http://localhost/storage/' + product[0].images" alt="Product Image" class="w-fit h-fit">
 
 
         
