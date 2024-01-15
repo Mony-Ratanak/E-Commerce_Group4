@@ -27,6 +27,12 @@ const router = createRouter({
       props: true  // Enables passing route params as props to your component
     },
     {
+      path: '/addproduct',
+      name: 'addproduct',
+      component: () => import('../views/Addproduct.vue'),
+      props: true  // Enables passing route params as props to your component
+    },
+    {
       path: '/productedit/:productId',
       name: 'editproduct',
       component: () => import('../views/Editproduct.vue'),
