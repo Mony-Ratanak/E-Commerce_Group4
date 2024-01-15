@@ -126,7 +126,7 @@
       },
       methods: {
         nextbrandRoute(brand) {
-          this.$router.push(`/${brand.name}/${brand.id}`);
+          this.$router.push({ path: `/${brand.name}/product/${brand.id}` });
         },
         nextproductRoute(product) {
           this.$router.push(`/${product.title}/${product.id}`);

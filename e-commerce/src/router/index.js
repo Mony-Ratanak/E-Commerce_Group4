@@ -15,9 +15,21 @@ const router = createRouter({
       component: ()=> import('../views/Productbycategory.vue')
     },
     {
-      path: '/:brandName/:brandId',
+      path: '/:brandName/product/:brandId',
       name: 'brandPage',
       component: () => import('../views/Productbybrand.vue'),
+      props: true  // Enables passing route params as props to your component
+    },
+    {
+      path: '/producttable',
+      name: 'producttable',
+      component: () => import('../views/Producttable.vue'),
+      props: true  // Enables passing route params as props to your component
+    },
+    {
+      path: '/productedit/:productId',
+      name: 'editproduct',
+      component: () => import('../views/Editproduct.vue'),
       props: true  // Enables passing route params as props to your component
     },
     

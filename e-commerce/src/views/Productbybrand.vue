@@ -62,7 +62,7 @@
     import {mapState} from 'pinia';
     import { RouterLink } from 'vue-router';
 
-    import Productbycategory from '../components/Productbycategory.vue';
+    import Productbybrand from '../components/Productbybrand.vue';
     import Topbar from '../components/Topbar.vue';
     import ShowCase from '../components/ShowCase.vue';
     import Promotion from '../components/Promotion.vue';
@@ -74,7 +74,7 @@
         Topbar,
         ShowCase,
         Promotion,
-        Productbycategory,
+        Productbybrand,
         Brand,
       },
       computed: {

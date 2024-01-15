@@ -48,7 +48,7 @@
         const numericBrandId = +brandId;
         try {
           console.log('Fetching products for brandId:', brandId);
-          const response = await axios.get('http://localhost/api/products2', {
+          const response = await axios.get('http://localhost/api/getallproductsbybrand', {
             params: {
               brand_id: numericBrandId,
             },

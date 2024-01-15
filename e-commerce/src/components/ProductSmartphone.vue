@@ -42,7 +42,7 @@ export default {
   methods: {
     async fetchProducts() {
       try {
-        const response = await axios.get('http://localhost/api/products', {
+        const response = await axios.get('http://localhost/api/getproductbycategory', {
           params: {
             category_id: 2,
           },

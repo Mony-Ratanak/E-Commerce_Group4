@@ -52,6 +52,7 @@
                 ></Productbycategory>
               </div>
           </div>
+          <Footer></Footer>
       </div>
   </div>
 </template>
@@ -67,6 +68,7 @@
     import ShowCase from '../components/ShowCase.vue';
     import Promotion from '../components/Promotion.vue';
     import Brand from '../components/Brand.vue';
+    import Footer from '../components/Footer.vue';
   
     export default {
       name: "app",
@@ -76,6 +78,7 @@
         Promotion,
         Productbycategory,
         Brand,
+        Footer,
       },
       computed: {
         ...mapState(useEStore,['prom']),

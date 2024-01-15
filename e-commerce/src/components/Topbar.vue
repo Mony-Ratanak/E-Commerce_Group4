@@ -43,7 +43,8 @@
                 this.$router.push(`/${item.title}/${item.id}`);
                 
             },
-        }
-     }
+        },
+    }
+     
  
  </script>

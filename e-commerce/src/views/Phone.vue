@@ -49,8 +49,8 @@
           <div class="px-10 w-100">
               <div class="horizontalscroll flex gap-4 w-full p-2">
                 <div class="horizontalscroll flex gap-4 w-full">
-                <ProductSmartphone v-for="product in productsmartphones" :key="product.id" :image= "product.image"
-                ></ProductSmartphone>
+                  <ProductSmartphone v-for="product in productsmartphones" :key="product.id" :image= "product.image"
+                  ></ProductSmartphone>
               </div>
               </div>
           </div>
