@@ -10,6 +10,8 @@
             <th>brand_id</th>
             <th>Description</th>
             <th>Pricing</th>
+            <th>Discount_percent</th>
+            <th>Discounted_price</th>
           </tr>
         </thead>
         <tbody>
@@ -20,6 +22,8 @@
             <td>{{ product.brand_id }}</td>
             <td>{{ product.description }}</td>
             <td>{{ product.pricing }}</td>
+            <td>{{ product.discount_percent }}</td>
+            <td>{{ product.discounted_price }}</td>
             <td>
               <button @click="editProduct(product.id)">Edit</button>
               <button @click="deleteProduct(product.id)">Delete</button>

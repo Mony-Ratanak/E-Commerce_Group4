@@ -18,11 +18,15 @@
         <label for="editedPricing">Pricing:</label>
         <input v-model="product[0].pricing" id="editedPricing" />
 
+        <label for="editedDiscount_percent">Discount_percent:</label>
+        <input v-model="product[0].discount_percent" id="editedDiscount_percent" />
+
+        <label for="editedDiscounted_price">Discounted_price:</label>
+        <input v-model="product[0].discounted_price" id="editedDiscounted_price" />
+
         <label for="editedImage">Image:</label>
         <input v-model="product[0].images" id="editedImage" />
         <img :src="'http://localhost/storage/' + product[0].images" alt="Product Image" class="w-fit h-fit">
-
-
         
         <label for="imageInput">Image:</label>
         <input type="file" ref="imageInput" @change="handleImageChange" />

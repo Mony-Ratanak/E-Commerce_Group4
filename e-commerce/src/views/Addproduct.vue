@@ -16,6 +16,9 @@
   
         <label for="editedPricing">Pricing:</label>
         <input v-model="product.pricing" id="editedPricing" />
+
+        <label for="editedPricing">Discount_Percent</label>
+        <input v-model="product.discount_percent" id="editedPricing" />
   
         <label for="imageInput">Image:</label>
         <input type="file" ref="imageInput" @change="handleImageChange" />
@@ -40,6 +43,7 @@
         category_id: '',
         brand_id: '',
         pricing: '',
+        discount_percent: '',
         images: [],
         });
 

@@ -63,16 +63,17 @@ export const useEStore = defineStore('todoList', {
         id: 5,  
         icon: 'chevron-down',
       },
+      
     ],
     prom: [
       {
         name: "1",
         image: bigpic1,
-        title: "Coupon Savings",
-        description: "Up to 60% off everyday essentials",
+        title: "BIG Savings",
+        description: "Up to 60% off on sale",
         bg: "bg-green-300",
         color:"bg-[#D6A9CC]",
-        btn: "Shop Coupon",
+        btn: "See promotions",
         btncolor:"bg-[#ED7171]"
   
       },
@@ -114,6 +115,8 @@ export const useEStore = defineStore('todoList', {
     productsmartphones: [
       {        
         id: 1,        
+        tag: "10% OFF",       
+        color: "bg-blue-300",     
       },
     ],
     brands: [

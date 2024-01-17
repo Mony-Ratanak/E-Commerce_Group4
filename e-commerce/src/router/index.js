@@ -24,21 +24,32 @@ const router = createRouter({
       path: '/producttable',
       name: 'producttable',
       component: () => import('../views/Producttable.vue'),
-      props: true  // Enables passing route params as props to your component
+      props: true  
     },
     {
       path: '/addproduct',
       name: 'addproduct',
       component: () => import('../views/Addproduct.vue'),
-      props: true  // Enables passing route params as props to your component
+      props: true  
     },
     {
       path: '/productedit/:productId',
       name: 'editproduct',
       component: () => import('../views/Editproduct.vue'),
+      props: true  
+    },
+    {
+      path: '/allpromotions',
+      name: 'allpromotions',
+      component: () => import('../views/Allpromotions.vue'),
       props: true  // Enables passing route params as props to your component
     },
-    
+    {
+      path: '/register',
+      name: 'allpromotion',
+      component: () => import('../views/register.vue'),
+      props: true  // Enables passing route params as props to your component
+    },
   ]
 })
 

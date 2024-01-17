@@ -3,7 +3,7 @@
     overflow-y: scroll;
     overflow-x: hidden;
     margin: 0;
-    height: 78vh;
+    height: 75vh;
   }
 
   .scroll::-webkit-scrollbar {
@@ -67,8 +67,8 @@
           </div>
           <div class="border-b-2 border-black mx-8 mt-4"></div>
           <div class="px-10 w-100">
-              <div class="horizontalscroll flex gap-4 w-full">
-                <ProductSmartphone v-for="product in productsmartphones" :key="product.id"
+              <div class="horizontalscroll flex gap-4 w-full p-2">
+                <ProductSmartphone v-for="product in productsmartphones" :key="product.id" :tag="product.tag" :color="product.color"
                 ></ProductSmartphone>
               </div>
           </div>

@@ -9,7 +9,7 @@
                 <h2 class="font-semibold text-2xl text-white">{{description}}</h2>
             </div>
             <div :class="btncolor" class="w-[170px] h-[40px] flex gap-2 justify-center items-center rounded-md shadow-md overflow-hidden">
-                <p class="flex text-center font-semibold text-white">{{ btn }}</p>
+                <p @click="nextRoute('/allpromotions')" class="flex text-center font-semibold text-white">{{ btn }}</p>
             </div>
         </div>  
     </div>
@@ -31,5 +31,11 @@
             btn: String,
             btncolor: String,
         },
+      methods: {
+        nextRoute(route) {
+          this.$router.push(route)
+        },
+      }
     }
+    
 </script>

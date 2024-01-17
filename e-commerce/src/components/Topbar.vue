@@ -1,19 +1,25 @@
+<style scoped>
+.topbar {
+    height: 25vh;
+  }
+</style>
+
+
 <template>
-    <div class="flex flex-col w-screen">
+    <div class="flex flex-col w-screen topbar">
          <div class=" flex items-center justify-between border-b border-gray-300 p-8">
              <div class="w-fit h-fit flex gap-6 items-center">
-                 <img src="../assets/logo.png" class="w-fit" >
+                 <img @click="nextRoute('/home/welcome')" src="../assets/logo.png" class="w-fit" >
                  <Searchbar class=" translate-y-[4px]"></Searchbar>
              </div>
              <div class="flex gap-4 text-black pr-6">
                  <MenuItem v-for="menu in Menuitems" :key="menu.title" :title="menu.title" :icon="menu.icon" :type="menu.type" ></MenuItem>
              </div>
-     
          </div>
          <div style="background-color: #212844;" class="flex items-center py-2 pl-8">
              <div class="flex gap-8 p-4">
                  <div class="flex w-fit gap-10 rounded-lg">
-                     <MenuItem @click="nextRoute(item)" :key="item.id" v-for="item in ListItem" :title="item.title" :icon="item.icon"></MenuItem>
+                     <MenuItem @click="nextRoutecategory(item)" :key="item.id" v-for="item in ListItem" :title="item.title" :icon="item.icon"></MenuItem>
                  </div>
              </div>
          </div>
@@ -38,12 +44,16 @@
              ...mapState(useEStore,['ListItem'])
          },
          methods: {
-            nextRoute(item) {
+            nextRoutecategory(item) {
                 console.log('Clicked item:', item);
                 this.$router.push(`/${item.title}/${item.id}`);
                 
             },
+            nextRoute(route) {
+                this.$router.push(route)
+            },
         },
+
     }
      
  
