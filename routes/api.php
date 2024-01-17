@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\BrandController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,9 +38,26 @@ use App\Http\Controllers\ProductController;
 // });
 
 
-Route::get('/products', [ProductController::class, 'index']);
+Route::get('/getproductbycategory', [ProductController::class, 'getproductbycategory']);
+Route::get('/getproductbyid', [ProductController::class, 'getproductbyid']);
+Route::get('/getallproducts', [ProductController::class, 'getallproducts']);
+Route::get('/getproductbycategoryandbrand', [ProductController::class, 'getproductbycategoryandbrand']);
+Route::get('/getallproductsbybrand', [ProductController::class, 'getallproductsbybrand']);
+Route::get('/getbrandid', [BrandController::class, 'getbrandid']);
 
-Route::post('/products', [ProductController::class, 'store']);
+
+Route::delete('/products/{product_id}', [ProductController::class, 'deleteProduct']);
+
+Route::patch('/products/{product_id}', [ProductController::class, 'updateProduct']);
+
+Route::post('/createProduct', [ProductController::class, 'createProduct']);
+Route::post('/register', [AuthController::class, 'register']);
+
+// Login
+Route::post('/login', [AuthController::class, 'login']);
+
+// Verify OTP
+Route::post('/verify_otp', [AuthController::class, 'verifyOTP']);
 // Route::get('/products/{productId}', function (Request $request) {
 //     return "Get 1 product";
 

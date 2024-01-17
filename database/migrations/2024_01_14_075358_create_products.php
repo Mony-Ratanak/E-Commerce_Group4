@@ -15,12 +15,14 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->bigInteger('category_id')->unsigned();
+            $table->bigInteger('brand_id')->unsigned();
             $table->double('pricing');
             $table->text('description')->nullable();
             $table->jsonb('images')->nullable();
             $table->timestamps();
-
+    
             $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('brand_id')->references('id')->on('brands');
         });
     }
 
