@@ -1,29 +1,29 @@
 <template>
-    <div>
-      <h2>Create Product</h2>
-      <form class="flex flex-col">
+    <div class="flex justify-center items-center h-screen bg-white">
+      <form class="flex flex-col border-4 border-[#212844] p-4">
+        <h2 class="mb-4 text-center text-bold text-2xl">Create Product</h2>
         <label for="editedName">Name:</label>
-        <input v-model="product.name" id="editedName" />
+        <input class="border-[1px] border-[#212844] h-10 rounded-lg" v-model="product.name" id="editedName" />
   
         <label for="editedDescription">Description:</label>
-        <textarea v-model="product.description" id="editedDescription"></textarea>
+        <textarea class="border-[1px] border-[#212844] h-20 rounded-lg" v-model="product.description" id="editedDescription"></textarea>
   
         <label for="editedCategory">Category:</label>
-        <input v-model="product.category_id" id="editedCategory" />
+        <input class="border-[1px] border-[#212844] h-10 rounded-lg" v-model="product.category_id" id="editedCategory" />
   
         <label for="editedBrand">Brand:</label>
-        <input v-model="product.brand_id" id="editedBrand" />
+        <input class="border-[1px] border-[#212844] h-10 rounded-lg" v-model="product.brand_id" id="editedBrand" />
   
         <label for="editedPricing">Pricing:</label>
-        <input v-model="product.pricing" id="editedPricing" />
+        <input class="border-[1px] border-[#212844] h-10 rounded-lg" v-model="product.pricing" id="editedPricing" />
 
         <label for="editedPricing">Discount_Percent</label>
-        <input v-model="product.discount_percent" id="editedPricing" />
+        <input class="border-[1px] border-[#212844] h-10 rounded-lg" v-model="product.discount_percent" id="editedPricing" />
   
         <label for="imageInput">Image:</label>
         <input type="file" ref="imageInput" @change="handleImageChange" />
   
-        <button @click.prevent="saveProduct" type="submit">Create Product</button>
+        <button class="bg-[#212844] text-white p-2 mt-4" @click.prevent="saveProduct" type="submit">Create Product</button>
       </form>
     </div>
   </template>
@@ -104,7 +104,4 @@
 
   </script>
   
-  <style scoped>
-  /* Add your styles for the create view */
-  </style>
   

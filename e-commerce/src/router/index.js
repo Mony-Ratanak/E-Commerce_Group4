@@ -46,8 +46,14 @@ const router = createRouter({
     },
     {
       path: '/register',
-      name: 'allpromotion',
+      name: 'register',
       component: () => import('../views/register.vue'),
+      props: true  // Enables passing route params as props to your component
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('../views/login.vue'),
       props: true  // Enables passing route params as props to your component
     },
   ]

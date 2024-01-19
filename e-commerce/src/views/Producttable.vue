@@ -1,17 +1,17 @@
 <template>
-    <div class="flex flex-col p-4">
-      <h2>Product Table</h2>
+    <div class="flex flex-col p-8 items-center">
+      <h2 class="text-2xl font-bold">Product Table</h2>
       <table class="table">
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Category_id</th>
-            <th>brand_id</th>
-            <th>Description</th>
-            <th>Pricing</th>
-            <th>Discount_percent</th>
-            <th>Discounted_price</th>
+            <th style="background-color: #212844; color: white;">ID</th>
+            <th style="background-color: #212844; color: white;">Name</th>
+            <th style="background-color: #212844; color: white;">Category_id</th>
+            <th style="background-color: #212844; color: white;">brand_id</th>
+            <th style="background-color: #212844; color: white;">Description</th>
+            <th style="background-color: #212844; color: white;">Pricing</th>
+            <th style="background-color: #212844; color: white;">Discount_percent</th>
+            <th style="background-color: #212844; color: white;">Discounted_price</th>
           </tr>
         </thead>
         <tbody>
@@ -21,12 +21,12 @@
             <td>{{ product.category_id }}</td>
             <td>{{ product.brand_id }}</td>
             <td>{{ product.description }}</td>
-            <td>{{ product.pricing }}</td>
-            <td>{{ product.discount_percent }}</td>
-            <td>{{ product.discounted_price }}</td>
-            <td>
-              <button @click="editProduct(product.id)">Edit</button>
-              <button @click="deleteProduct(product.id)">Delete</button>
+            <td>${{ product.pricing }}</td>
+            <td>{{ product.discount_percent }}%</td>
+            <td>${{ product.discounted_price }}</td>
+            <td class="flex justify-between">
+              <button @click="editProduct(product.id)" class="text-blue-700 underline">Edit</button>
+              <fa :icon="['fas', 'trash']" style="color: rgb(255, 92, 92);" @click="deleteProduct(product.id)"></fa>
             </td>
           </tr>
         </tbody>

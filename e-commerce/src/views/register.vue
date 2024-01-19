@@ -1,30 +1,23 @@
 <template>
-  <div class="bg-gray-100 min-h-screen flex items-center justify-center">
-    <div class="max-w-md w-full p-6 bg-white rounded-md shadow-md">
-      <div class="text-2xl font-semibold mb-4">Register Form</div>
-      
+  <div class="card">
+    <div class="card-header">Register Form</div>
+    <div class="card-body">
       <form @submit.prevent="handleRegister">
-        <div class="mb-4">
-          <label for="name" class="block text-gray-700">First Name</label>
-          <input type="text" v-model="form.name" name="name" id="name" class="form-input mt-1 block w-full" />
-        </div>
-        
-        <div class="mb-4">
-          <label for="email" class="block text-gray-700">Email</label>
-          <input type="email" v-model="form.email" name="email" id="email" class="form-input mt-1 block w-full" />
-        </div>
-        
-        <div class="mb-4">
-          <label for="password" class="block text-gray-700">Password</label>
-          <input type="password" v-model="form.password" name="password" id="password" class="form-input mt-1 block w-full" />
-        </div>
 
-        <div class="mb-4">
-          <label for="password_confirmation" class="block text-gray-700">Confirm Password</label>
-          <input type="password" v-model="form.password_confirmation" name="password_confirmation" id="password_confirmation" class="form-input mt-1 block w-full" />
-        </div>
+        <label>First username</label>
+        <input type="text" v-model="form.username" username="username" id="username" class="form-control"/>
 
-        <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Save</button>
+        <label>Email</label>
+        <input type="email" v-model="form.email" username="email" id="email" class="form-control"/>
+
+        <label>Password</label>
+        <input type="password" v-model="form.password" username="password" id="password" class="form-control"/>
+
+        <label>Confirm Password</label>
+        <input type="password" v-model="form.confirm_password" username="confirm_password" id="confirm_password" class="form-control"/>
+
+        <input type="submit" value="Save" class="btn btn-success"/>
+
       </form>
     </div>
   </div>
@@ -38,20 +31,42 @@ import { useRouter } from "vue-router";
 const router = useRouter();
 
 const form = ref({
-  name: "",
+  username: "",
   password: "",
   email: "",
-  password_confirmation: "",
+  confirm_password: "",
 });
 
-const handleRegister = async () => {
-  const formData = new FormData();
-  formData.append("name", form.value.name);
-  formData.append("email", form.value.email);
-  formData.append("password", form.value.password);
-  formData.append("password_confirmation", form.value.password_confirmation);
+    const handleRegister = async () => {
+      try {
+        // Explicitly include confirm_password field in the request payload
+        const response = await axios.post("http://localhost/api/register", {
+          username: form.value.username,
+          password: form.value.password,
+          email: form.value.email,
+          confirm_password: form.value.confirm_password,
+        }, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
 
-  await axios.post("http://localhost/register", formData);
-  router.push("/");
-};
+        // Assuming the server returns a success message or data
+        console.log("Registration successful:", response.data);
+
+        // Redirect to a success page or perform other actions
+        router.push("/home/welcome");
+      } catch (error) {
+        console.error("Registration error:", error);
+        console.dir(error.response); // Log the detailed response
+
+        // Handle error (e.g., display an error message to the user)
+        // For example, you can check for specific validation errors
+        if (error.response && error.response.data && error.response.data.message) {
+          alert(error.response.data.message);
+        } else {
+          alert("An error occurred during registration.");
+        }
+      }
+    };
 </script>

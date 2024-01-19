@@ -8,6 +8,7 @@ import xiaomilogo from '../assets/xiaomilogo.png'
 import iphone from '../assets/iphone.png'
 import realme from '../assets/realme.png'
 import xiaomi from '../assets/xiaomi.png'
+import backgroundimage from '../assets/backgroundimage.png'
 
 import { defineStore } from 'pinia';
 
