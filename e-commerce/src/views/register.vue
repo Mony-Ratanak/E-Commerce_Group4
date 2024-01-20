@@ -55,7 +55,7 @@ const form = ref({
         console.log("Registration successful:", response.data);
 
         // Redirect to a success page or perform other actions
-        router.push("/home/welcome");
+        router.push("/login");
       } catch (error) {
         console.error("Registration error:", error);
         console.dir(error.response); // Log the detailed response
