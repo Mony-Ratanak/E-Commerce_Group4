@@ -1,5 +1,6 @@
 <template>
     <div class="flex flex-col p-8 items-center">
+      <img class="mb-4 w-fit" @click="nextRoute('/home/welcome')" src="../assets/logo.png">
       <h2 class="text-2xl font-bold">Product Table</h2>
       <table class="table">
         <thead>
@@ -49,6 +50,7 @@
     methods: {
       async fetchProducts() {
         try {
+          axios.defaults.headers.common["Authorization"] = "Bearer " + localStorage.getItem("token");
           const response = await axios.get('http://localhost/api/getallproducts');
           this.products = response.data;
         } catch (error) {
@@ -65,6 +67,9 @@
       },
       editProduct(productId) {
         this.$router.push({ path: `/productedit/${productId}` });
+      },
+      nextRoute(route) {
+        this.$router.push(route)
       },
     },
   };

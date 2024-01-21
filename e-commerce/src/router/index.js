@@ -59,7 +59,7 @@ const router = createRouter({
     {
       path: '/profile',
       name: 'profile',
-      component: () => import('../views/profile.vue'),
+      component: () => import('../views/Profile.vue'),
       props: true  // Enables passing route params as props to your component
     },
   ]

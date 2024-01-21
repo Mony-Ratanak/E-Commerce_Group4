@@ -1,7 +1,7 @@
 <template>
   <div class="flex justify-center items-center h-screen w-screen">
     <div class="flex flex-col border-2 border-black px-4 w-fit h-[600px] justify-between">
-        <form @submit.prevent="login" class="flex flex-col gap-2">
+        <form @submit.prevent="login" class="flex flex-col gap-2 p-2 pt-4">
           <h2 class="text-xl font-bold mb-4">Sign in</h2>
           <label for="email">Email or phone number</label>
           <input class="w-[400px] h-[50px] border-2 border-[#0099FF] p-4" type="email" placeholder="Enter email or phone number" v-model="email">
@@ -11,7 +11,7 @@
 
           <div class="block mt-4">
             <label for="remember_me" class="inline-flex items-center">
-              <input id="remember_me" type="checkbox" v-model="rememberMe" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
+              <input id="remember_me" type="checkbox" v-model="rememberMe" class="rounded border-gray-300 shadow-sm" name="remember">
               <span class="ms-2 text-sm text-gray-600">Remember Me</span>
             </label>
           </div>
@@ -29,7 +29,7 @@
                 <div class="border-t border-black my-4 w-1/4"></div>
               </div>
               <div class="flex w-full px-10 justify-center mb-8">
-                  <button @click="nextRoute()" class="flex justify-center items-center border-2 border-gray-300 text-black p-2 px-20 w-fit shadow-inner shadow-md" type="submit">Create new account</button>
+                  <button @click="nextRoute()" class="flex justify-center items-center border-2 border-gray-300 text-black p-2 px-20 w-fit shadow-inner" type="submit">Create new account</button>
               </div>
         </div>
     </div>

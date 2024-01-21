@@ -13,7 +13,7 @@
                  <Searchbar class=" translate-y-[4px]"></Searchbar>
              </div>
              <div class="flex gap-4 text-black pr-6">
-                 <MenuItem v-for="menu in Menuitems" :key="menu.title" :title="menu.title" :icon="menu.icon" :type="menu.type" ></MenuItem>
+                 <MenuItem @click="nextRoute('/profile')" v-for="menu in Menuitems" :key="menu.title" :title="menu.title" :icon="menu.icon" :type="menu.type" ></MenuItem>
              </div>
          </div>
          <div style="background-color: #212844;" class="flex items-center py-2 pl-8">

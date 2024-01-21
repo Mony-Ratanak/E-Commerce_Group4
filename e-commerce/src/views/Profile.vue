@@ -1,12 +1,14 @@
 <template>
     <div>
-      <h2>User Profile</h2>
       <div v-if="loading">Loading...</div>
-      <div v-else>
-        <p v-if="user">User ID: {{ user.id }}</p>
-        <p v-if="user">Name: {{ user.name }}</p>
-        <p v-if="user">Email: {{ user.email }}</p>
-        <p v-if="!user">User not found</p>
+      <div class="flex flex-col w-screen h-screen justify-center items-center" v-else>
+        <img class="mb-4 w-fit" @click="nextRoute('/home/welcome')" src="../assets/logo.png">
+        <h2 class="text-xl font-bold">User Profile</h2>
+        <p class="text-xl font-bold" v-if="user">User ID: {{ user.id }}</p>
+        <p class="text-xl font-bold" v-if="user">Name: {{ user.name }}</p>
+        <p class="text-xl font-bold" v-if="user">Email: {{ user.email }}</p>
+        <p class="text-xl font-bold" v-if="!user">User not found</p>
+        <button @click="logout" class="mt-4 bg-red-500 text-white px-4 p-2 rounded">Logout</button>
       </div>
     </div>
   </template>
@@ -55,6 +57,22 @@
         this.loading = false;
       }
     },
+    methods:{
+      nextRoute(route) {
+        this.$router.push(route)
+      },
+      logout() {
+        // Clear the token from local storage
+        localStorage.removeItem('token');
+        
+        // Clear the "remember_token" cookie
+        document.cookie = "remember_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+        // Redirect to the logout route (you can adjust the route accordingly)
+        this.$router.push('/login');
+      },
+
+    }
   };
   </script>
   
