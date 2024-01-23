@@ -27,6 +27,13 @@ class ProductController extends Controller
         $products = Product::where('id', $Id)->get();
         return $products;
     }
+
+    public function getproductbyname($name) {
+        $products = Product::where('name', 'LIKE', '%' . $name . '%')->get();
+        return $products;
+    }
+    
+
     public function getproductbycategoryandbrand(Request $request)
     {
         $categoryId = $request->input('category_id');

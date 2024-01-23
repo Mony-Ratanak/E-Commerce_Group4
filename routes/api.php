@@ -1,5 +1,6 @@
 <?php
 
+namespace App\Http\Controllers;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
@@ -40,6 +41,7 @@ use App\Http\Controllers\AuthController;
 
 Route::get('/getproductbycategory', [ProductController::class, 'getproductbycategory']);
 Route::get('/getproductbyid', [ProductController::class, 'getproductbyid']);
+Route::get('/getproductbyname/{name}', [ProductController::class, 'getproductbyname']);
 Route::get('/getallproducts', [ProductController::class, 'getallproducts']);
 Route::get('/getproductbycategoryandbrand', [ProductController::class, 'getproductbycategoryandbrand']);
 Route::get('/getallproductsbybrand', [ProductController::class, 'getallproductsbybrand']);
@@ -57,7 +59,13 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
 // Verify OTP
-Route::post('/verify_otp', [AuthController::class, 'verifyOTP']);
+Route::get('/verify-otp', [AuthController::class, 'verifyOTP'])->name('verify.otp');
+Route::middleware('auth:api')->get('/profile', [AuthController::class, 'getProfile']);
+Route::get('/getallproducts', [ProductController::class, 'getallproducts'])->middleware('can.create.category');
+
+
+// Verify OTP
+
 // Route::get('/products/{productId}', function (Request $request) {
 //     return "Get 1 product";
 
