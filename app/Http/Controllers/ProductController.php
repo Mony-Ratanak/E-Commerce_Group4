@@ -22,10 +22,20 @@ class ProductController extends Controller
         return $products;
     }
     public function getproductbyid(Request $request) {
-        $Id = $request->input('id');
-        // $brandId = $request->input('brand_id');
-        $products = Product::where('id', $Id)->get();
-        return $products;
+        $id = $request->input('id');
+    
+        // Fetch product with category information
+        $product = Product::with('category:id,name')->find($id);
+    
+        return $product;
+    }
+    public function getProductByIdWithoutCategory(Request $request) {
+        $id = $request->input('id');
+    
+        // Fetch product without category information
+        $product = Product::find($id);
+    
+        return $product;
     }
 
     public function getproductbyname($name) {
