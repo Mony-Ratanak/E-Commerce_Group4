@@ -196,6 +196,12 @@
         return productId || null;
         },
     },
+    watch: {
+      $route(to, from) {
+        const productId = this.getProductIdFromUrl();
+        this.fetchProduct(productId);
+      },
+    },
   };
   </script>
   
