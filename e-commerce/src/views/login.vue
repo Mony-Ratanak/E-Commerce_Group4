@@ -1,13 +1,13 @@
 <template>
   <div class="flex justify-center items-center h-screen w-screen">
-    <div class="flex flex-col border-2 border-black px-4 w-fit h-[600px] justify-between">
+    <div class="flex flex-col border-2 border-black px-4 w-fit h-fit justify-between">
         <form @submit.prevent="login" class="flex flex-col gap-2 p-2 pt-4">
           <h2 class="text-xl font-bold mb-4">Sign in</h2>
           <label for="email">Email or phone number</label>
-          <input class="w-[400px] h-[50px] border-2 border-[#0099FF] p-4" type="email" placeholder="Enter email or phone number" v-model="email">
+          <input class="w-full h-fulll border-2 border-[#0099FF] p-4" type="email" placeholder="Enter email or phone number" v-model="email">
 
           <label for="password">Password</label>
-          <input class="w-[400px] h-[50px] border-2 border-[#0099FF] p-4" type="password" placeholder="Enter password" v-model="password">
+          <input class="w-full h-full border-2 border-[#0099FF] p-4" type="password" placeholder="Enter password" v-model="password">
 
           <div class="block mt-4">
             <label for="remember_me" class="inline-flex items-center">

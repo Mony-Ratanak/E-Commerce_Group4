@@ -57,7 +57,7 @@
             const numericId = +Id;
             try {
             console.log('Fetching product for Id:', Id);
-            const response = await axios.get('http://localhost/api/getproductbyid', {
+            const response = await axios.get('http://localhost/api/getproductbyidwithoutcategory', {
                 params: {
                 id: numericId,
                 },

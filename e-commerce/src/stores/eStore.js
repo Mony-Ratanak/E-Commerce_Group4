@@ -22,12 +22,12 @@ export const useEStore = defineStore('todoList', {
         type: 'header',
       },
       {
-        title: 'Sign Up',
+        title: '',
         icon: 'user',
         type: 'header',
       },
       {
-        title: 'Cart',
+        title: '',
         icon: 'cart-shopping',
         type: 'header',
       },

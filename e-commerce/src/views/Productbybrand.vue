@@ -83,11 +83,6 @@
         // ...mapState(useEStore,['categories']),
         ...mapState(useEStore,['productbycategory']),
       },
-    //   methods: {
-    //     nextRoute(route) {
-    //       this.$router.push(route)
-    //     }
-    //   }
     }
      
   </script>

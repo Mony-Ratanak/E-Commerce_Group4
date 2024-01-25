@@ -1,6 +1,6 @@
 <template>
     <div class="flex gap-4">
-      <div v-for="product in products" :key="product.id" class="flex flex-col w-[220px] bg-white border-[2px] border-blue-300 rounded-lg my-2 items-center justify-between">
+      <div @click="nextproductRoute(product)" v-for="product in products" :key="product.id" class="flex flex-col w-[220px] bg-white border-[2px] border-blue-300 rounded-lg my-2 items-center justify-between">
         <div class="flex items-center justify-between w-[220px] pl-4">
             <div class="font-bold text-xl">{{ product.brand_name }}</div>
             <div v-if="product.discount_percent !== 0" class="flex w-[60px] h-[60px] text-white justify-center items-center rounded-tr-lg rounded-bl-lg text-center" :class="color">{{ product.discount_percent }}% OFF</div>
@@ -12,7 +12,7 @@
           <div class="flex flex-col bg-white justify-between w-full px-4 h-fit">
             <div class="mt-4 bg-white">
               <p class="font font-bold text-[18px]">{{ product.name }}</p>
-              <p class="mt-2 text-gray-600 font-semibold">{{ product.description }}</p>
+              <p class="mt-2 text-gray-600 font-semibold">{{ truncateDescription(product.description) }}</p>
             </div>
             <div class="flex w-full flex-col gap-4 pb-2">
               <div class="border-b-2 border-gray-300 w-full"></div>
@@ -65,6 +65,18 @@
         const brandId = pathArray[pathArray.length - 1];
         return brandId || null;
       },
+      
+      nextproductRoute(product) {
+          this.$router.push({ path: `/productdetail/${product.id}` });
+        },
+        truncateDescription(description) {
+          const maxLength = 60;
+          if (description.length > maxLength) {
+            return description.substring(0, maxLength) + '...';
+          } else {
+            return description;
+          }
+        },
     },
     
   };

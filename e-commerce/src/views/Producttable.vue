@@ -13,6 +13,7 @@
             <th style="background-color: #212844; color: white;">Pricing</th>
             <th style="background-color: #212844; color: white;">Discount_percent</th>
             <th style="background-color: #212844; color: white;">Discounted_price</th>
+            <th style="background-color: #212844; color: white;">UPDATE_OPTIONS</th>
           </tr>
         </thead>
         <tbody>

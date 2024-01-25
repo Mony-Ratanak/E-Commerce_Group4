@@ -10,7 +10,7 @@ const router = createRouter({
       component: ()=> import('../views/homepage.vue')
     },
     {
-      path: '/:itemTitle/:itemId',
+      path: '/:itemTitle/:categoryId',
       name: 'productbycategory',
       component: ()=> import('../views/Productbycategory.vue')
     },
@@ -60,6 +60,12 @@ const router = createRouter({
       path: '/profile',
       name: 'profile',
       component: () => import('../views/Profile.vue'),
+      props: true  // Enables passing route params as props to your component
+    },
+    {
+      path: '/productdetail/:productId',
+      name: 'productdetail',
+      component: () => import('../views/Productdetail.vue'),
       props: true  // Enables passing route params as props to your component
     },
   ]
