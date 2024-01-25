@@ -40,6 +40,7 @@ use App\Http\Controllers\AuthController;
 
 
 Route::get('/getproductbycategory', [ProductController::class, 'getproductbycategory']);
+Route::get('/getallpromotedproducts', [ProductController::class, 'getallpromotedproducts']);
 Route::get('/getproductbyid', [ProductController::class, 'getproductbyid']);
 Route::get('/getproductbyidwithoutcategory', [ProductController::class, 'getProductByIdWithoutCategory']);
 Route::get('/getproductbyname/{name}', [ProductController::class, 'getproductbyname']);

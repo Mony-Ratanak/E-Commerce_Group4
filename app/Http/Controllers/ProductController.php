@@ -14,6 +14,11 @@ class ProductController extends Controller
         $products = Product::orderBy('id')->orderBy('name')->get();
         return $products;
     }
+    public function /*getProducts*/getallpromotedproducts()
+    {
+        $products = Product::orderBy('id')->orderBy('name')->get();
+        return $products;
+    }
 
     public function getproductbycategory(Request $request) {
         $categoryId = $request->input('category_id');
@@ -25,17 +30,14 @@ class ProductController extends Controller
         $id = $request->input('id');
     
         // Fetch product with category information
-        $product = Product::with('category:id,name')->find($id);
-    
+        $product = Product::with(['category:id,name', 'brand:id,name'])->find($id);
+
         return $product;
     }
     public function getProductByIdWithoutCategory(Request $request) {
-        $id = $request->input('id');
-    
-        // Fetch product without category information
-        $product = Product::find($id);
-    
-        return $product;
+        $Id = $request->input('id');
+        $products = Product::where('id', $Id)->get();
+        return $products;
     }
 
     public function getproductbyname($name) {
