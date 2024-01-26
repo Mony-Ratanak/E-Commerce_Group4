@@ -63,6 +63,7 @@
         };
 
         const createProductOnServer = async (product) => {
+            axios.defaults.headers.common["Authorization"] = "Bearer " + localStorage.getItem("token");
             const apiUrl = 'http://localhost/api/createProduct';
             await axios.post(apiUrl, product);
         };

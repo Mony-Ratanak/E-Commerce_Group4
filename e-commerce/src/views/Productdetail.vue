@@ -70,8 +70,8 @@
                   <button3 @click="buyNow">BUY NOW</button3>
             </div>
         </div>
-        <div class="flex justify-center w-96 h-96 mr-48">
-            <img :src="'http://localhost/storage/' + product.images" alt="Product Image">
+        <div class="flex justify-center mr-40 border-[1px] border-[#0099FF] p-8 hover:bg-gray-200">
+            <img class="w-fit h-96" :src="'http://localhost/storage/' + product.images" alt="Product Image">
         </div>
       </div>
       <div class="Decription border-2 border-[#0099FF]" >

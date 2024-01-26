@@ -21,7 +21,7 @@
          <div style="background-color: #212844;" class="flex items-center py-2 pl-8">
              <div class="flex gap-8 p-4">
                  <div class="category flex w-fit gap-10 rounded-lg">
-                     <MenuItem @click="nextRoutecategory(item)" :key="item.id" v-for="item in ListItem" :title="item.title" :icon="item.icon"></MenuItem>
+                     <MenuItem class="hover:bg-[#0abab5]" @click="nextRoutecategory(item)" :key="item.id" v-for="item in ListItem" :title="item.title" :icon="item.icon"></MenuItem>
                  </div>
              </div>
          </div>

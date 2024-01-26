@@ -1,25 +1,41 @@
+<style scoped>
+.profile{
+  height:75vh;
+}
+</style>
+
 <template>
+  <topbar></topbar>
     <div>
       <div v-if="loading">Loading...</div>
-      <div class="flex flex-col w-screen h-screen justify-center items-center" v-else>
-        <img class="mb-4 w-fit" @click="nextRoute('/home/welcome')" src="../assets/logo.png">
+      <div class="profile flex flex-col w-screen" v-else>
+        <img class="mb-4 w-48 h-48" @click="nextRoute('/home/welcome')" src="../assets/profile.png">
         <h2 class="text-xl font-bold">User Profile</h2>
         <p class="text-xl font-bold" v-if="user">User ID: {{ user.id }}</p>
         <p class="text-xl font-bold" v-if="user">Name: {{ user.name }}</p>
         <p class="text-xl font-bold" v-if="user">Email: {{ user.email }}</p>
         <p class="text-xl font-bold" v-if="!user">User not found</p>
-        <button @click="logout" class="mt-4 bg-red-500 text-white px-4 p-2 rounded">Logout</button>
+        <div class="flex">
+          <button @click="logout" class="mt-4 bg-white px-4 p-2 rounded border-2 border-blue-300">Logout</button>
+          <button @click="logout" class="mt-4 bg-red-500 text-white px-4 p-2 rounded">Delete Account</button>
+        </div>
       </div>
     </div>
   </template>
   
   <script>
+
+import Topbar from '../components/Topbar.vue';
+
   export default {
     data() {
       return {
         user: null,
         loading: true,
       };
+    },
+    components: {
+        Topbar,
     },
     mounted() {
       console.log('Component mounted');

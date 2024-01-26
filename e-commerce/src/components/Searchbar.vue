@@ -1,15 +1,15 @@
 <template>
   <div class="w-100 h-fit border-2 rounded-lg items-center flex bg-white" style="border-color: #0099FF;">
     <div @click="toggleDropdown" style="background-color: #212844;" class="flex h-full items-center p-4 gap-2 rounded-l-md cursor-pointer">
-      <div class="text-center font-medium text-lg w-10 text-white">All</div>
+      <div class="text-center font-medium text-lg w-10 text-white">Filter</div>
       <img src="../assets/dropdown.png" class="h-[7px] w-[12px] translate-y-[2px]" alt="">
     </div>
 
     <!-- Dropdown menu -->
     <div v-if="showDropdown" class="flex flex-col absolute bg-white border-2 rounded-lg mt-40">
-      <div @click="selectOption('1')" class="px-4 py-2">All</div>
-      <div @click="selectOption('2')" class="px-4 py-2">Trending</div>
-      <div @click="selectOption('3')" class="px-4 py-2">Discount</div>
+      <div @click="selectOption('1')" class="px-4 py-2 hover:bg-[#0abab5]">All</div>
+      <div @click="selectOption('2')" class="px-4 py-2 hover:bg-[#0abab5]">Trending</div>
+      <div @click="nextRoute('/allpromotions')" class="px-4 py-2 hover:bg-[#0abab5]">Discount</div>
     </div>
 
     <div>
@@ -62,6 +62,9 @@ export default {
     },
     nextproductRoute(product) {
           this.$router.push({ path: `/productdetail/${product.id}` });
+    },
+    nextRoute(route) {
+          this.$router.push(route)
     },
   },
 };
