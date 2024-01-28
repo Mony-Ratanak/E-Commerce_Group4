@@ -7,8 +7,8 @@
 
     <!-- Dropdown menu -->
     <div v-if="showDropdown" class="flex flex-col absolute bg-white border-2 rounded-lg mt-40">
-      <div @click="selectOption('1')" class="px-4 py-2 hover:bg-[#0abab5]">All</div>
-      <div @click="selectOption('2')" class="px-4 py-2 hover:bg-[#0abab5]">Trending</div>
+      <div @click="nextRoute('/home/welcome')" class="px-4 py-2 hover:bg-[#0abab5]">All</div>
+      <div @click="nextRoute('/categories')" class="px-4 py-2 hover:bg-[#0abab5]">Categories</div>
       <div @click="nextRoute('/allpromotions')" class="px-4 py-2 hover:bg-[#0abab5]">Discount</div>
     </div>
 
@@ -16,11 +16,11 @@
       <input v-model="searchTerm" @input="searchProducts" type="text" placeholder="Search for items" class="relative w-[400px] h-[60px] outline-none border-l max-h-full pl-2">
       <div v-if="products.length > 0 && searchTerm !== ''" class="flex justify-center items-center absolute top-[60px] left-1 w-[515px]">
         <div class="flex bg-white w-full justify-between border-2 border-[#0099FF]">
-          <div class="flex flex-col gap-2 w-full pr-2">
-            <div @click="nextproductRoute(product)" v-for="product in products" :key="product.id" class="flex justify-between items-center w-full">
+          <div class="flex flex-col gap-2 w-full">
+            <div @click="nextproductRoute(product)" v-for="product in products" :key="product.id" class="flex justify-between items-center w-full hover:bg-[#0abab5] hover:text-white">
               <img :src="'http://localhost/storage/' + product.images" alt="Product Image" class="w-14 h-14">
               <div>{{ product.name }}</div>
-              <div>${{ product.pricing }}</div>
+              <div class="mr-2">${{ product.pricing }}</div>
             </div>
           </div>
         </div>

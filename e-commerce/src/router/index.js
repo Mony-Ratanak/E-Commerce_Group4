@@ -27,15 +27,33 @@ const router = createRouter({
       props: true  
     },
     {
+      path: '/categorytable',
+      name: 'categorytable',
+      component: () => import('../views/Categorytable.vue'),
+      props: true  
+    },
+    {
       path: '/addproduct',
       name: 'addproduct',
       component: () => import('../views/Addproduct.vue'),
       props: true  
     },
     {
+      path: '/addcategory',
+      name: 'addcategory',
+      component: () => import('../views/Addcategory.vue'),
+      props: true  
+    },
+    {
       path: '/productedit/:productId',
       name: 'editproduct',
       component: () => import('../views/Editproduct.vue'),
+      props: true  
+    },
+    {
+      path: '/categoryedit/:categoryId',
+      name: 'editcategory',
+      component: () => import('../views/Editcategory.vue'),
       props: true  
     },
     {
@@ -66,6 +84,12 @@ const router = createRouter({
       path: '/productdetail/:productId',
       name: 'productdetail',
       component: () => import('../views/Productdetail.vue'),
+      props: true  // Enables passing route params as props to your component
+    },
+    {
+      path: '/categories',
+      name: 'categories',
+      component: () => import('../views/Categories.vue'),
       props: true  // Enables passing route params as props to your component
     },
   ]

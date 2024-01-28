@@ -1,6 +1,10 @@
 <template>
     <div class="flex flex-col p-8 items-center">
       <img class="mb-4 w-fit" @click="nextRoute('/home/welcome')" src="../assets/logo.png">
+      <div class="flex w-full justify-end gap-2 text-white">
+          <button @click="nextRoute('/addproduct')" class="flex p-2 bg-[#212844] rounded-lg">Create Product</button>
+          <button @click="nextRoute('/categorytable')" class="flex p-2 bg-[#212844] rounded-lg">Category Table</button>
+      </div>
       <h2 class="text-2xl font-bold">Product Table</h2>
       <table class="table">
         <thead>

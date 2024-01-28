@@ -61,8 +61,8 @@
                     <div class="flex w-full flex-col gap-4 pb-2">
                         <div class="border-b-2 border-gray-300 w-full"></div>
                         <div class="flex w-full justify-between">
-                            <p class="text-black">${{ product.pricing }}</p>
-                            <p class="text-green-500">{{ product.buy }}</p>
+                          <p class="text-green-500">${{ product.discounted_price }}</p>
+                          <div v-if="product.discount_percent !== 0"><p class="text-red-500 line-through">${{ product.pricing }}</p></div>
                         </div>
                     </div>
                 </div>

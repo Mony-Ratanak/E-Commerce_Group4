@@ -4,7 +4,7 @@
         <topbar></topbar>
     </div>
     <div class="scroll flex flex-col">
-      <div class="flex justify-between items-center">
+      <div class="flex justify-center items-center pl-8 gap-48">
           <div class="product-detail">
             <h1 style="color: grey; margin-bottom: 10px;font-size: 25px;">Product Detail</h1>
         
@@ -70,7 +70,7 @@
                   <button3 @click="buyNow">BUY NOW</button3>
             </div>
         </div>
-        <div class="flex justify-center mr-40 border-[1px] border-[#0099FF] p-8 hover:bg-gray-200">
+        <div class="flex justify-center border-[1px] border-[#0099FF] p-8 hover:bg-gray-200">
             <img class="w-fit h-96" :src="'http://localhost/storage/' + product.images" alt="Product Image">
         </div>
       </div>
