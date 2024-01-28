@@ -3,11 +3,13 @@ import bigpic2 from '../assets/bigpic2.png'
 import bigpic3 from '../assets/bigpic3.png'
 import macbook from '../assets/Macbook.png'
 import iphonelogo from '../assets/iphonelogo.png'
+import huaweilogo from '../assets/huaweilogo.png'
 import realmelogo from '../assets/realmelogo.png'
 import xiaomilogo from '../assets/xiaomilogo.png'
 import iphone from '../assets/iphone.png'
 import realme from '../assets/realme.png'
 import xiaomi from '../assets/xiaomi.png'
+import huawei from '../assets/huaweiphone.png'
 import backgroundimage from '../assets/backgroundimage.png'
 
 import { defineStore } from 'pinia';
@@ -152,12 +154,12 @@ export const useEStore = defineStore('todoList', {
         btncolor: "bg-[#FFD1B0]",
       },
       {
-        name: "iphone",
-        id:1,
-        image: iphonelogo,
-        bigimage: iphone,
+        name: "huawei",
+        id:4,
+        image: huaweilogo,
+        bigimage: huawei,
         description: "Up to 80% OFF",
-        color:"bg-[#313131]",
+        color:"bg-[#51ae77]",
         textcolor: "text-white",
         btncolor: "bg-[#494949]",
       },
