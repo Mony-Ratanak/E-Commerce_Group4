@@ -140,6 +140,22 @@ class AuthController extends Controller
             return response()->json(['error' => 'Unauthenticated'], 401);
         }
     }
+
+    public function deleteUser()
+    {
+        $user = Auth::user();
+    
+        if ($user) {
+            $user->delete();
+    
+            // Log the successful deletion
+            \Log::info('User deleted successfully', ['user_id' => $user->id]);
+    
+            // Return a success response
+            return response()->json(['message' => 'User deleted successfully'], 200);
+        }
+    }
+    
     
 
 }

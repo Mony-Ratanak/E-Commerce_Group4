@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\AuthController;
 
@@ -54,7 +55,8 @@ Route::delete('/products/{product_id}', [ProductController::class, 'deleteProduc
 
 Route::patch('/products/{product_id}', [ProductController::class, 'updateProduct']);
 
-Route::post('/createProduct', [ProductController::class, 'createProduct']);
+Route::post('/createProduct', [ProductController::class, 'createProduct'])->middleware('can.create.category');
+
 Route::post('/register', [AuthController::class, 'register']);
 
 // Login
@@ -65,6 +67,18 @@ Route::get('/verify-otp', [AuthController::class, 'verifyOTP'])->name('verify.ot
 Route::middleware('auth:api')->get('/profile', [AuthController::class, 'getProfile']);
 Route::get('/getallproducts', [ProductController::class, 'getallproducts'])->middleware('can.create.category');
 
+
+
+Route::get('/categories', [CategoryController::class, 'getCategories']);
+Route::post('/createcategory', [CategoryController::class, 'createCategory']);
+Route::delete('/category/{categoryId}', [CategoryController::class, 'deleteCategory']);
+Route::patch('/categories/{categoryId}', [CategoryController::class, 'updateCategory']);
+Route::get('/getcategorybyid', [CategoryController::class, 'getcategorybyid']);
+
+
+
+Route::delete('/deleteuser', [AuthController::class, 'deleteUser']);
+Route::middleware('auth:api')->delete('/deleteuser', [AuthController::class, 'deleteUser']);
 
 // Verify OTP
 
