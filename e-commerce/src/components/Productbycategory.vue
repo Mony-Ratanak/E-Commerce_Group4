@@ -1,5 +1,5 @@
 <template>
-    <div class="flex gap-4 flex-col">
+    <div class="flex gap-4 flex-col flex-wrap">
       <div v-for="brandId in brandIds" :key="brandId" class="flex gap-4">
         <div @click="nextproductRoute(product)" v-for="product in getProductsByBrand(brandId)" :key="product.id" class="flex flex-col w-[220px] bg-white border-[2px] border-blue-300 rounded-lg my-2 items-center justify-between hover:bg-[#0abab5] hover:text-white">
           <div class="flex items-center justify-between w-[220px] pl-4">

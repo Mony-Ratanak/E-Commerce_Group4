@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-col w-screen relative p-10">
       <transition name="fade" mode="out-in">
-        <div v-if="changeblock" key="green" style="background-color: #000000;" class="flex pl-40 rounded-3xl h-[500px] justify-between items-center pr-40">
+        <div @click="nextRoute('/productdetail/4')" v-if="changeblock" key="green" style="background-color: #000000;" class="flex pl-40 rounded-3xl h-[500px] justify-between items-center pr-40">
           <div class="flex flex-col">
             <p class="text-3xl font-semibold text-white">Best deal online on the new MACBOOK</p>
             <p class="text-7xl text-white">MACBOOK PRO 2023</p>
@@ -9,7 +9,7 @@
           </div>
           <img src="../assets/macbooklogo.png" class="w-[400px] h-[400px]">
         </div>
-        <div v-else key="white"  style="background-color: #212844;" class="flex pl-40 rounded-3xl h-[500px] justify-between items-center pr-40">
+        <div @click="nextRoute('/productdetail/27')" v-else key="white"  style="background-color: #212844;" class="flex pl-40 rounded-3xl h-[500px] justify-between items-center pr-40">
           <div class="flex flex-col">
             <p class="text-3xl font-semibold text-white">Best deal online on smart watches</p>
             <p class="text-7xl text-white">Smart Wearable</p>
@@ -50,6 +50,9 @@
       toggleBlock() {
         this.changeblock = !this.changeblock;
       },
+      nextRoute(route) {
+          this.$router.push(route)
+    },
     },
   };
   </script>

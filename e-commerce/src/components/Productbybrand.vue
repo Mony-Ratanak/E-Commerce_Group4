@@ -1,5 +1,6 @@
+
 <template>
-    <div class="flex gap-4">
+    <div class="flex gap-4 flex-wrap">
       <div @click="nextproductRoute(product)" v-for="product in products" :key="product.id" class="flex flex-col w-[220px] bg-white border-[2px] border-blue-300 rounded-lg my-2 items-center justify-between hover:bg-[#0abab5] hover:text-white">
         <div class="flex items-center justify-between w-[220px] pl-4">
             <div class="font-bold text-xl">{{ product.brand_name }}</div>

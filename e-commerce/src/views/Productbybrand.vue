@@ -1,60 +1,25 @@
-<style>
-  .scroll {
-    overflow-y: scroll;
-    overflow-x: hidden;
-    margin: 0;
-    height: 75vh;
-  }
-
-  .scroll::-webkit-scrollbar {
-    width: 4px;
-  }
-
-  .scroll::-webkit-scrollbar-thumb {
-    background-color: #000000;
-    border-radius: 6px;
-  }
-
-  .scroll::-webkit-scrollbar-track {
-    background-color: #f1f1f1;
-  }
-  .horizontalscroll {
-    overflow-y: hidden;
-    overflow-x: scroll;
-    margin: 0;
-  }
-
-  .horizontalscroll::-webkit-scrollbar {
-    height: 6px;
-  }
-
-  .horizontalscroll::-webkit-scrollbar-thumb {
-    background-color: #000000;
-    border-radius: 6px;
-  }
-
-  .horizontalscroll::-webkit-scrollbar-track {
-    background-color: white;
-  }
-  body{
-    overflow: hidden;
-  }
-</style>
 
 
 <template>
-  <div class="flex flex-col gap-4">
+  <div class="flex flex-col gap-4 overflow-x-hidden">
       <topbar></topbar>
-      <div class="scroll">
-          <div class="px-10 w-100">
-              <div class="horizontalscroll flex gap-4 w-full p-2">
-                <Productbybrand v-for="product in productbycategory" :key="product.id" :tag="product.tag" :color="product.color"
-                ></Productbybrand>
+      <div class="flex flex-col scroll">
+          <div class="flex w-full">
+              <div class="flex gap-4 p-2 w-full pl-8">
+                <Productbybrand v-for="product in productbycategory" :key="product.id" :tag="product.tag" :color="product.color"></Productbybrand>
               </div>
           </div>
+          <Footer></Footer>
       </div>
   </div>
 </template>
+<style scoped>
+  .scroll {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 72vh;
+  }
+</style>
 
 
 <script>
@@ -67,6 +32,7 @@
     import ShowCase from '../components/ShowCase.vue';
     import Promotion from '../components/Promotion.vue';
     import Brand from '../components/Brand.vue';
+    import Footer from '../components/Footer.vue';
   
     export default {
       name: "app",
@@ -76,6 +42,7 @@
         Promotion,
         Productbybrand,
         Brand,
+        Footer,
       },
       computed: {
         ...mapState(useEStore,['prom']),

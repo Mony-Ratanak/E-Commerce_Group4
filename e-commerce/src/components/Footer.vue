@@ -27,12 +27,12 @@
                         <h2 class="text-2xl font-bold mb-2">Most Popular Categories</h2>
                         <div class="border-b-4 border-white"></div>
                         <ul class="list-disc">
-                            <li class="mb-2 mt-2">Laptops</li>
-                            <li class="mb-2">Phones</li>
-                            <li class="mb-2">Laptop Accessories</li>
-                            <li class="mb-2">Phone Accessories</li>
-                            <li class="mb-2">Smart Watches</li>
-                            <li class="mb-2">Watch Accessories</li>
+                            <li @click="nextRoute('/Laptop/1')" class="mb-2 mt-2">Laptops</li>
+                            <li @click="nextRoute('/Phone/2')" class="mb-2">Phones</li>
+                            <li @click="nextRoute('/Laptop%20accessories/4')" class="mb-2">Laptop Accessories</li>
+                            <li @click="nextRoute('/Phone%20accessories/5')" class="mb-2">Phone Accessories</li>
+                            <li @click="nextRoute('/Smart%20Watch/3')" class="mb-2">Smart Watches</li>
+                            <li @click="nextRoute('/Laptop%20accessories/4')" class="mb-2">Watch Accessories</li>
                         </ul>
                     </div>
                 </div>
@@ -60,6 +60,12 @@
   <script>
     export default {
         name: 'Footer',
+        methods: {
+            nextRoute(route) {
+                this.$router.push(route)
+            },
+        },
     };
+    
   </script>
   
