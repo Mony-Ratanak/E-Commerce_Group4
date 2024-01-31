@@ -14,7 +14,7 @@
         <input class="w-[400px] h-[50px] border-2 border-[#0099FF] p-4" type="password" v-model="form.password" username="password" placeholder="Enter password">
 
         <label class="mt-4">Re-enter Password</label>
-        <input class="w-[400px] h-[50px] border-2 border-[#0099FF] p-4" type="password" v-model="form.confirm_password" username="confirm_password" placeholder="Re-enter your">
+        <input class="w-[400px] h-[50px] border-2 border-[#0099FF] p-4" type="password" v-model="form.confirm_password" username="confirm_password" placeholder="Re-enter your password">
 
         <div class="flex my-4">
             <p>By creating an account, you agree to our</p>

@@ -4,7 +4,7 @@
         <topbar></topbar>
     </div>
     <div class="scroll flex flex-col">
-      <div class="flex justify-center items-center pl-8 gap-48">
+      <div class="flex justify-center items-center pl-8 gap-96">
           <div class="product-detail">
             <h1 style="color: grey; margin-bottom: 10px;font-size: 25px;">Product Detail</h1>
         
