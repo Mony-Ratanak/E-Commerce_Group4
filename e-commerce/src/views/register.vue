@@ -66,9 +66,7 @@ const form = ref({
           },
         });
 
-        // Assuming the server returns a success message or data
-        console.log("Registration successful:", response.data);
-
+        alert("Register successful, go to your email to verify your account");
         // Redirect to a success page or perform other actions
         router.push("/login");
       } catch (error) {

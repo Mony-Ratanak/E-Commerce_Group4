@@ -72,11 +72,15 @@ export default {
 
         // Set the Authorization header for Axios requests
         axios.defaults.headers.common["Authorization"] = "Bearer " + localStorage.getItem("token");
-
-        this.$router.push("/home/welcome");
+        if (this.email.toLowerCase().includes("admin")) {
+          this.$router.push("/producttable");
+        }else{
+          this.$router.push("/home/welcome");
+        }
       })
       .catch(error => {
         console.error(error);
+        alert("Incorrect email or password. Please try again.");
       });
     },
     loginWithRememberToken(rememberToken) {

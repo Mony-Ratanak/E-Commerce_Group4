@@ -1,7 +1,7 @@
 <template>
     <div class="flex gap-4 flex-col flex-wrap">
       <div v-for="brandId in brandIds" :key="brandId" class="flex gap-4">
-        <div @click="nextproductRoute(product)" v-for="product in getProductsByBrand(brandId)" :key="product.id" class="flex flex-col w-[220px] bg-white border-[2px] border-blue-300 rounded-lg my-2 items-center justify-between hover:bg-[#0abab5] hover:text-white">
+        <div @click="nextproductRoute(product)" v-for="product in getProductsByBrand(brandId)" :key="product.id" class="flex flex-col w-[220px] bg-white border-[2px] border-blue-300 rounded-lg my-2 items-center justify-between hover:bg-[#0abab5] hover:text-white hover:scale-105 transition-transform duration-400 ease-in-out">
           <div class="flex items-center justify-between w-[220px] pl-4">
             <div class="font-bold text-xl">{{ product.brand_name }}</div>
             <div v-if="product.discount_percent !== 0" class="flex w-[60px] h-[60px] text-white justify-center items-center rounded-tr-lg rounded-bl-lg text-center" :class="color">{{ product.discount_percent }}% OFF</div>

@@ -52,7 +52,7 @@
           </div>
           <div class="flex justify-between items-center px-8 mt-4">
             <p class="text-3xl">Grab the best deal on Laptops</p>
-            <p class="text-3xl">View all</p>
+            <p @click="nextRoute('/Laptop/1')" class="text-3xl">View all</p>
           </div>
           <div class="border-b-2 border-black mx-8 mt-4"></div>
           <div class="px-10 w-100">
@@ -63,7 +63,7 @@
           </div>
           <div class="flex justify-between items-center px-8 mt-4">
             <p class="text-3xl">Grab the best deal on SmartPhones</p>
-            <p class="text-3xl">View all</p>
+            <p @click="nextRoute('/Phone/2')" class="text-3xl">View all</p>
           </div>
           <div class="border-b-2 border-black mx-8 mt-4"></div>
           <div class="px-10 w-100">
@@ -127,6 +127,9 @@
       methods: {
         nextbrandRoute(brand) {
           this.$router.push({ path: `/${brand.name}/product/${brand.id}` });
+        },
+        nextRoute(route) {
+          this.$router.push(route)
         },
 
       },

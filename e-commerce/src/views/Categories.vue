@@ -9,13 +9,13 @@
   <div class="category flex">
     <div class="flex flex-col h-fit p-4">
         <div class="flex p-2 font-bold text-[#212844] border-b-2 border-gray-600">Category</div>
-        <div v-for="category in categories" @click="setCurrentCategory(category.id)" :key="category.id" class="flex flex-col p-2 rounded-lg font-bold hover:bg-[#0abab5] hover:text-white">
+        <div v-for="category in categories" @click="setCurrentCategory(category.id)" :key="category.id" class="flex flex-col p-2 rounded-lg font-bold hover:bg-[#0abab5] hover:text-white hover:scale-105 transition-transform duration-400 ease-in-out">
             <div>{{ category.name }}</div>
         </div>
     </div>
     <div class="flex flex-col overflow-y-auto w-full border-l-gray-400 border-[2px] px-4">
         <div v-for="brandId in brandIds" :key="brandId" class="flex gap-4">
-            <div @click="nextproductRoute(product)" v-for="product in getProductsByBrand(brandId)" :key="product.id" class="flex flex-col w-[220px] bg-white border-[2px] border-blue-300 rounded-lg my-2 items-center justify-between hover:bg-[#0abab5] hover:text-white">
+            <div @click="nextproductRoute(product)" v-for="product in getProductsByBrand(brandId)" :key="product.id" class="flex flex-col w-[220px] bg-white border-[2px] border-blue-300 rounded-lg my-2 items-center justify-between hover:bg-[#0abab5] hover:text-white hover:scale-105 transition-transform duration-400 ease-in-out">
                 <div class="flex items-center justify-between w-[220px] pl-4">
                     <div class="font-bold text-xl">{{ product.brand_name }}</div>
                     <div v-if="product.discount_percent !== 0" class="flex w-[60px] h-[60px] text-white justify-center items-center rounded-tr-lg rounded-bl-lg text-center" :class="color">{{ product.discount_percent }}% OFF</div>
