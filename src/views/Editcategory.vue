@@ -29,7 +29,7 @@
         const numericCategoryId = +categoryId;
         try {
           console.log('Fetching category for ID:', categoryId);
-          const response = await axios.get('http://localhost/api/getcategorybyid', {
+          const response = await axios.get('http://127.0.0.1:8000/api/getcategorybyid', {
                 params: {
                 id: numericCategoryId,
                 },
@@ -45,7 +45,7 @@
         return categoryId || null;
       },
       async updateCategoryOnServer(category) {
-        const apiUrl = `http://localhost/api/categories/${category.id}`;
+        const apiUrl = `http://127.0.0.1:8000/api/categories/${category.id}`;
         await axios.patch(apiUrl, category);
       },
       async saveChanges() {

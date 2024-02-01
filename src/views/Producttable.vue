@@ -56,7 +56,7 @@
       async fetchProducts() {
         try {
           axios.defaults.headers.common["Authorization"] = "Bearer " + localStorage.getItem("token");
-          const response = await axios.get('http://localhost/api/getallproducts');
+          const response = await axios.get('http://127.0.0.1:8000/api/getallproducts');
           this.products = response.data;
         } catch (error) {
           console.error('Error fetching products:', error);
@@ -64,7 +64,7 @@
       },
       async deleteProduct(productId) {
         try {
-          await axios.delete(`http://localhost/api/products/${productId}`);
+          await axios.delete(`http://127.0.0.1:8000/api/products/${productId}`);
           this.fetchProducts();
         } catch (error) {
           console.error('Error deleting product:', error);

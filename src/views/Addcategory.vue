@@ -38,7 +38,7 @@
         // Set up your authorization headers if needed
         // axios.defaults.headers.common["Authorization"] = "Bearer " + localStorage.getItem("token");
   
-        const apiUrl = 'http://localhost/api/createcategory';
+        const apiUrl = 'http://127.0.0.1:8000/api/createcategory';
         await axios.post(apiUrl, category);
       };
   

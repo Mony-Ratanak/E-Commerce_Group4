@@ -43,7 +43,7 @@
       async fetchCategories() {
         try {
           axios.defaults.headers.common["Authorization"] = "Bearer " + localStorage.getItem("token");
-          const response = await axios.get('http://localhost/api/categories');
+          const response = await axios.get('http://127.0.0.1:8000/api/categories');
           this.categories = response.data.categories;
         } catch (error) {
           console.error('Error fetching categories:', error);
@@ -51,7 +51,7 @@
       },
       async deleteCategory(categoryId) {
         try {
-          await axios.delete(`http://localhost/api/category/${categoryId}`);
+          await axios.delete(`http://127.0.0.1:8000/api/category/${categoryId}`);
           await this.fetchCategories();
         } catch (error) {
           console.error('Error deleting category:', error);

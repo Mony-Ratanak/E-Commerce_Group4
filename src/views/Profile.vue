@@ -34,7 +34,7 @@ export default {
     const token = localStorage.getItem('token');
 
     if (token) {
-      fetch('http://localhost/api/profile', {
+      fetch('http://127.0.0.1:8000/api/profile', {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -75,7 +75,7 @@ export default {
 
       if (token) {
         if (confirm('Are you sure you want to delete your account?')) {
-          fetch('http://localhost/api/deleteuser', {
+          fetch('http://127.0.0.1:8000/api/deleteuser', {
             method: 'DELETE',
             headers: {
               'Authorization': `Bearer ${token}`,

@@ -18,7 +18,7 @@
         <div class="flex bg-white w-full justify-between border-2 border-[#0099FF]">
           <div class="flex flex-col gap-2 w-full">
             <div @click="nextproductRoute(product)" v-for="product in products" :key="product.id" class="flex justify-between items-center w-full hover:bg-[#0abab5] hover:text-white">
-              <img :src="'http://localhost/storage/' + product.images" alt="Product Image" class="w-14 h-14">
+              <img :src="'http://127.0.0.1:8000/storage/' + product.images" alt="Product Image" class="w-14 h-14">
               <div>{{ product.name }}</div>
               <div class="mr-2">${{ product.pricing }}</div>
             </div>
@@ -52,7 +52,7 @@ export default {
     },
     searchProducts() {
       // Replace the URL with your actual backend API endpoint
-      axios.get(`http://localhost/api/getproductbyname/${this.searchTerm}`)
+      axios.get(`http://127.0.0.1:8000/api/getproductbyname/${this.searchTerm}`)
         .then(response => {
           this.products = response.data;
         })
